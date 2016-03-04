@@ -2,9 +2,9 @@
 
 # 安装脚本到/usr/bin目录
 
-installShell() {
+uninstallShell() {
 	shellPath=$1
-	echo ">>>> begin install shell: $shellPath"
+	echo ">>>> begin uninstall shell: $shellPath"
 
 	if [[ -f $shellPath ]]; then
 
@@ -15,9 +15,8 @@ installShell() {
 		if [[ "sh" = $extend ]]; then
 			toPath="/usr/bin/$name"
 
-			chmod +x  $shellPath
-			sudo cp -f $shellPath $toPath
-			echo "install" $shellPath "toPath: $toPath"
+			sudo rm $toPath
+			echo "uninstall" $toPath
 		else
 			echo "$shellPath is not a shell ... "
 		fi
@@ -26,7 +25,7 @@ installShell() {
 	fi
 }
 
-scanDirectoryToInstall() {
+scanDirectoryToUninstall() {
 	searchDir=$1
 	echo " ====== search directory: $searchDir"
 
@@ -37,7 +36,7 @@ scanDirectoryToInstall() {
 
 	for fromFile in $searchDir/*
 	do
-		installShell $fromFile
+		uninstallShell $fromFile
 	done
 }
 
@@ -48,9 +47,9 @@ if [[ -z "$workPath" ]]; then
 fi
 
 if [[ -d "$workPath" ]]; then
-	scanDirectoryToInstall $workPath 
+	scanDirectoryToUninstall $workPath 
 else
-	installShell $workPath 
+	uninstallShell $workPath 
 fi
 
 exit 0
