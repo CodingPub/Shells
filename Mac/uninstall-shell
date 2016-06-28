@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# 安装脚本到/usr/bin目录
+# 从/usr/bin目录卸载脚本
 
 uninstallShell() {
 	shellPath=$1

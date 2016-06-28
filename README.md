@@ -1,8 +1,12 @@
-# Shells
+## Mac
 
 * install-shell
 
 	> 安装脚本到 /user/bin 目录
+
+* uninstall-shell
+
+	> 从/usr/bin目录卸载脚本
 
 * move-files
 	

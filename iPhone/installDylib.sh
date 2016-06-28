@@ -1,9 +1,9 @@
 
-#  ~/installDylib.sh "wechatHook"  "/Users/linxiaobin/Library/Developer/Xcode/DerivedData/WeChatHook-fbifrxpxvhsoltdzljvpvwkmxylc/Build/Products/Release-iphoneos/wechatHook.app" false "backboardd" /tmp/com.apple.springboard.txt 
+#  ~/installDylib.sh "FLWeChatHongBao"  /Users/linxiaobin/Library/Developer/Xcode/DerivedData/WeChatHook-gajfmzavqxcmjjfqvoctsuyislic/Build/Products/Release-iphoneos/FLWeChatHongBao.app  false "backboardd" /tmp/com.apple.springboard.txt 
 
-# ~/installDylib.sh "wechatHook" "/Users/linxiaobin/Library/Developer/Xcode/DerivedData/WeChatHook-fbifrxpxvhsoltdzljvpvwkmxylc/Build/Products/Release-iphoneos/wechatHook.app" false "WeChat"  "/var/mobile/Applications/FB58E99B-C4B2-43C0-B13E-FDD9F35A681E/tmp/com.tencent.xin.txt"
+# ~/installDylib.sh "FLWeChatHongBao"  /Users/linxiaobin/Library/Developer/Xcode/DerivedData/WeChatHook-gajfmzavqxcmjjfqvoctsuyislic/Build/Products/Release-iphoneos/FLWeChatHongBao.app  false "WeChat"  "/var/mobile/Applications/FB58E99B-C4B2-43C0-B13E-FDD9F35A681E/tmp/com.tencent.xin.txt"
 
-
+# ~/installDylib.sh "XSysInfoHook" /Users/linxiaobin/Library/Developer/Xcode/DerivedData/XSysInfoHook-cstxmkwszmlmvmaxsddbfeclkgkb/Build/Products/Release-iphoneos/XSysInfoHook.app false "XSysInfo"
 
 name=$1
 dirSource=$2
@@ -19,12 +19,12 @@ pathPlistDest=$dirDynamicLibraries"/$name.plist"
 
 echo "scp $pathDylibDest"
 rm $pathDylibDest
-scp linxiaobin@172.17.170.65:$pathDylibSrc $pathDylibDest
+scp linxiaobin@192.168.5.86:$pathDylibSrc $pathDylibDest
 
 if [[ $reloadPlist = true ]]; then
 	echo "scp $pathPlistDest"
 	rm $pathPlistDest
-	scp linxiaobin@172.17.170.65:$pathPlistSrc $pathPlistDest
+	scp linxiaobin@192.168.5.86:$pathPlistSrc $pathPlistDest
 fi
 
 killall $threadName

@@ -16,7 +16,8 @@ installShell() {
 			toPath="/usr/bin/$name"
 
 			chmod +x  $shellPath
-			sudo cp -f $shellPath $toPath
+			# sudo cp -f $shellPath $toPath
+			sudo ln $shellPath $toPath
 			echo "install" $shellPath "toPath: $toPath"
 		else
 			echo "$shellPath is not a shell ... "
