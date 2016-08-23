@@ -17,7 +17,7 @@ installShell() {
 
 			chmod +x  $shellPath
 			# sudo cp -f $shellPath $toPath
-			sudo ln $shellPath $toPath
+			sudo ln -s $shellPath $toPath
 			echo "install" $shellPath "toPath: $toPath"
 		else
 			echo "$shellPath is not a shell ... "
@@ -49,9 +49,9 @@ if [[ -z "$workPath" ]]; then
 fi
 
 if [[ -d "$workPath" ]]; then
-	scanDirectoryToInstall $workPath 
+	scanDirectoryToInstall $workPath
 else
-	installShell $workPath 
+	installShell $workPath
 fi
 
 exit 0

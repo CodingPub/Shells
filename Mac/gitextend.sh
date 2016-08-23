@@ -3,7 +3,7 @@
 # git 快捷指令
 
 cmd=$1
-if [[ -z cmd ]]; then
+if [[ -z $cmd ]]; then
 	cmd="-h"
 fi
 
